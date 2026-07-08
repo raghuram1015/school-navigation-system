@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>School Internal Navigation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="control-panel" aria-label="Navigation controls">
+        <section class="brand-block">
+          <p class="eyebrow">Internal navigation</p>
+          <h1>School Route Finder</h1>
+          <p class="subtitle">Search rooms, halls, stairs, and common areas across floors.</p>
+        </section>
+
+        <section class="route-card" aria-label="Route search">
+          <label for="start">Start</label>
+          <select id="start"></select>
+
+          <label for="destination">Destination</label>
+          <select id="destination"></select>
+
+          <button id="routeButton" type="button">Find Route</button>
+        </section>
+
+        <section class="floor-tabs" aria-label="Floor selector">
+          <button class="floor-tab" type="button" data-floor="ground">Ground</button>
+          <button class="floor-tab" type="button" data-floor="second">Second</button>
+          <button class="floor-tab" type="button" data-floor="third">Third</button>
+        </section>
+
+        <section class="directions" aria-live="polite">
+          <div>
+            <p class="eyebrow">Route</p>
+            <h2 id="routeTitle">Choose a destination</h2>
+          </div>
+          <ol id="steps"></ol>
+        </section>
+      </aside>
+
+      <section class="map-stage" aria-label="Interactive school floor plan">
+        <div class="map-toolbar">
+          <div>
+            <p class="eyebrow">Current floor</p>
+            <h2 id="floorTitle">Ground Floor</h2>
+          </div>
+          <div class="zoom-controls" aria-label="Map zoom">
+            <button id="zoomOut" type="button" aria-label="Zoom out">-</button>
+            <button id="resetView" type="button" aria-label="Reset view">100%</button>
+            <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
+          </div>
+        </div>
+
+        <div class="viewport" id="viewport">
+          <div class="map-canvas" id="mapCanvas">
+            <img id="floorImage" src="" alt="" />
+            <svg id="routeLayer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <div id="markerLayer" aria-label="Map locations"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
