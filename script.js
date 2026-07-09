@@ -3,63 +3,64 @@ const floors = {
     title: "Ground Floor",
     image: "assets/ground-floor.png",
     locations: [
-      { id: "main-entry", name: "Main Entrance", x: 42, y: 91 },
-      { id: "reception", name: "Reception Block", x: 42, y: 78 },
-      { id: "dining", name: "Dining Hall", x: 48, y: 40 },
-      { id: "amphitheatre", name: "Amphitheatre", x: 56, y: 63 },
-      { id: "north-stairs-g", name: "North Stairs", x: 36, y: 30 },
-      { id: "central-stairs-g", name: "Central Stairs", x: 38, y: 70 }
+      { id: "main-entry", name: "Main Entrance", x: 22, y: 94 },
+      { id: "reception", name: "Reception Block", x: 28, y: 78 },
+      { id: "dining-entry-2", name: "Dining Hall Entry 2", x: 42, y: 34 },
+      { id: "amphitheatre", name: "Amphitheater", x: 42, y: 58 },
+      { id: "corridor-1", name: "Corridor 1", x: 55, y: 69 },
+      { id: "central-stairs-g", name: "Central Stairs", x: 24, y: 68 }
     ],
     paths: {
-      "main-entry|reception": [[42, 91], [42, 82], [42, 78]],
-      "main-entry|dining": [[42, 91], [42, 78], [38, 70], [39, 56], [48, 40]],
-      "main-entry|amphitheatre": [[42, 91], [42, 78], [48, 70], [56, 63]],
-      "main-entry|north-stairs-g": [[42, 91], [42, 78], [38, 70], [39, 56], [36, 30]],
-      "reception|dining": [[42, 78], [38, 70], [39, 56], [48, 40]],
-      "reception|amphitheatre": [[42, 78], [48, 70], [56, 63]],
-      "dining|north-stairs-g": [[48, 40], [39, 35], [36, 30]],
-      "dining|central-stairs-g": [[48, 40], [39, 56], [38, 70]],
-      "amphitheatre|central-stairs-g": [[56, 63], [48, 70], [38, 70]]
+      "main-entry|reception": [[22, 94], [22, 84], [28, 78]],
+      "reception|central-stairs-g": [[28, 78], [24, 72], [24, 68]],
+      "central-stairs-g|amphitheatre": [[24, 68], [34, 65], [42, 58]],
+      "amphitheatre|corridor-1": [[42, 58], [49, 66], [55, 69]],
+      "central-stairs-g|dining-entry-2": [[24, 68], [25, 50], [42, 34]],
+      "dining-entry-2|amphitheatre": [[42, 34], [42, 47], [42, 58]],
+      "corridor-1|reception": [[55, 69], [40, 72], [28, 78]]
     }
   },
   second: {
     title: "Second Floor",
     image: "assets/second-floor.png",
     locations: [
-      { id: "second-west", name: "West Classroom Wing", x: 12, y: 70 },
-      { id: "second-lobby", name: "Second Floor Lobby", x: 34, y: 61 },
-      { id: "second-bridge", name: "Connecting Corridor", x: 50, y: 66 },
-      { id: "second-north", name: "North Classroom Wing", x: 65, y: 43 },
-      { id: "second-east", name: "East Curved Block", x: 85, y: 71 },
-      { id: "second-stairs", name: "Second Floor Stairs", x: 62, y: 62 }
+      { id: "second-entry", name: "Second Floor Entry", x: 24, y: 62 },
+      { id: "north-classrooms-2", name: "North Classroom Wing", x: 25, y: 16 },
+      { id: "mp-hall", name: "MPH", x: 51, y: 32 },
+      { id: "south-classrooms-2", name: "South Classroom Wing", x: 27, y: 76 },
+      { id: "east-classrooms-2", name: "East Classroom Wing", x: 70, y: 66 },
+      { id: "second-stairs", name: "Second Floor Stairs", x: 25, y: 61 }
     ],
     paths: {
-      "second-west|second-lobby": [[12, 70], [24, 70], [34, 61]],
-      "second-lobby|second-bridge": [[34, 61], [42, 64], [50, 66]],
-      "second-bridge|second-stairs": [[50, 66], [58, 66], [62, 62]],
-      "second-stairs|second-north": [[62, 62], [63, 54], [65, 43]],
-      "second-bridge|second-east": [[50, 66], [66, 66], [76, 70], [85, 71]],
-      "second-west|second-east": [[12, 70], [24, 70], [34, 61], [50, 66], [66, 66], [76, 70], [85, 71]]
+      "second-entry|second-stairs": [[24, 62], [25, 61]],
+      "second-stairs|north-classrooms-2": [[25, 61], [25, 40], [25, 16]],
+      "second-stairs|mp-hall": [[25, 61], [36, 46], [51, 32]],
+      "second-stairs|south-classrooms-2": [[25, 61], [26, 70], [27, 76]],
+      "second-stairs|east-classrooms-2": [[25, 61], [44, 61], [60, 66], [70, 66]],
+      "mp-hall|east-classrooms-2": [[51, 32], [51, 52], [60, 66], [70, 66]]
     }
   },
   third: {
     title: "Third Floor",
     image: "assets/third-floor.png",
     locations: [
-      { id: "third-entry", name: "Third Floor Entry", x: 39, y: 75 },
-      { id: "third-classrooms", name: "Classroom Corridor", x: 55, y: 72 },
-      { id: "mp-hall", name: "MP Hall", x: 45, y: 35 },
-      { id: "stage", name: "Stage", x: 32, y: 36 },
-      { id: "third-lobby", name: "Lobby", x: 62, y: 36 },
-      { id: "north-wing", name: "North Classroom Wing", x: 34, y: 15 }
+      { id: "third-entry", name: "Third Floor Entry", x: 24, y: 58 },
+      { id: "girls-washroom", name: "Girls Washroom", x: 15, y: 25 },
+      { id: "boys-washroom", name: "Boys Washroom", x: 17, y: 44 },
+      { id: "audi", name: "Audi", x: 39, y: 35 },
+      { id: "third-lobby", name: "Lobby", x: 68, y: 35 },
+      { id: "ladies-washroom", name: "Ladies Washroom", x: 86, y: 65 },
+      { id: "ramps", name: "Ramps", x: 24, y: 75 },
+      { id: "av-room", name: "AV Room", x: 27, y: 93 }
     ],
     paths: {
-      "third-entry|third-classrooms": [[39, 75], [48, 75], [55, 72]],
-      "third-entry|mp-hall": [[39, 75], [39, 56], [45, 35]],
-      "mp-hall|stage": [[45, 35], [36, 35], [32, 36]],
-      "mp-hall|third-lobby": [[45, 35], [54, 35], [62, 36]],
-      "mp-hall|north-wing": [[45, 35], [36, 28], [34, 15]],
-      "third-classrooms|north-wing": [[55, 72], [39, 56], [36, 28], [34, 15]]
+      "third-entry|ramps": [[24, 58], [24, 68], [24, 75]],
+      "third-entry|boys-washroom": [[24, 58], [20, 50], [17, 44]],
+      "boys-washroom|girls-washroom": [[17, 44], [16, 34], [15, 25]],
+      "third-entry|audi": [[24, 58], [29, 47], [39, 35]],
+      "audi|third-lobby": [[39, 35], [54, 35], [68, 35]],
+      "third-entry|ladies-washroom": [[24, 58], [45, 61], [66, 64], [86, 65]],
+      "ramps|av-room": [[24, 75], [25, 84], [27, 93]]
     }
   }
 };
@@ -87,9 +88,11 @@ let zoom = 1;
 let isChangingFloor = false;
 
 function allLocations() {
-  return Object.entries(floors).flatMap(([floorId, floor]) =>
-    floor.locations.map((location) => ({ ...location, floorId, floorTitle: floor.title }))
-  );
+  return Object.entries(floors)
+    .filter(([floorId, floor]) => floorId !== "first" && !floor.title.toLowerCase().includes("first"))
+    .flatMap(([floorId, floor]) =>
+      floor.locations.map((location) => ({ ...location, floorId, floorTitle: floor.title }))
+    );
 }
 
 function fillSelects() {
@@ -100,10 +103,10 @@ function fillSelects() {
   startSelect.innerHTML = options;
   destinationSelect.innerHTML = options;
   startSelect.value = "ground:main-entry";
-  destinationSelect.value = "ground:dining";
+  destinationSelect.value = "ground:dining-entry-2";
 }
 
-function setFloor(floorId) {
+function setFloor(floorId, shouldDrawRoute = true) {
   activeFloor = floorId;
   const floor = floors[floorId];
   floorImage.src = floor.image;
@@ -115,7 +118,7 @@ function setFloor(floorId) {
   });
 
   renderMarkers();
-  if (!isChangingFloor) {
+  if (shouldDrawRoute && !isChangingFloor) {
     drawRoute();
   }
 }
@@ -307,7 +310,7 @@ function setZoom(nextZoom) {
 }
 
 document.querySelectorAll(".floor-tab").forEach((button) => {
-  button.addEventListener("click", () => setFloor(button.dataset.floor));
+  button.addEventListener("click", () => setFloor(button.dataset.floor, false));
 });
 
 document.querySelector("#zoomIn").addEventListener("click", () => setZoom(zoom + 0.1));
