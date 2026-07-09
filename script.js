@@ -106,7 +106,7 @@ function fillSelects() {
   destinationSelect.value = "ground:dining-entry-2";
 }
 
-function setFloor(floorId, shouldDrawRoute = true) {
+function setFloor(floorId, shouldDrawRoute = true, shouldFocusRouteFloor = true) {
   activeFloor = floorId;
   const floor = floors[floorId];
   floorImage.src = floor.image;
@@ -119,7 +119,7 @@ function setFloor(floorId, shouldDrawRoute = true) {
 
   renderMarkers();
   if (shouldDrawRoute && !isChangingFloor) {
-    drawRoute();
+    drawRoute(shouldFocusRouteFloor);
   }
 }
 
@@ -237,7 +237,7 @@ function drawPath(path) {
   });
 }
 
-function drawRoute() {
+function drawRoute(shouldFocusRouteFloor = true) {
   const [startFloor, startId] = startSelect.value.split(":");
   const [destinationFloor, destinationId] = destinationSelect.value.split(":");
   const start = locationFromValue(startSelect.value);
@@ -266,7 +266,8 @@ function drawRoute() {
     } else if (activeFloor === destinationFloor) {
       drawPath(destinationFloorPath);
     } else if (visibleAccessId) {
-      routeLayer.innerHTML = "";
+      const transferPath = findPath(floors[activeFloor], visibleAccessId, visibleAccessId);
+      drawPath(transferPath);
     } else {
       isChangingFloor = true;
       setFloor(startFloor);
@@ -278,6 +279,11 @@ function drawRoute() {
   }
 
   if (activeFloor !== startFloor) {
+    if (!shouldFocusRouteFloor) {
+      routeLayer.innerHTML = "";
+      return;
+    }
+
     isChangingFloor = true;
     setFloor(startFloor);
     isChangingFloor = false;
@@ -310,7 +316,7 @@ function setZoom(nextZoom) {
 }
 
 document.querySelectorAll(".floor-tab").forEach((button) => {
-  button.addEventListener("click", () => setFloor(button.dataset.floor, false));
+  button.addEventListener("click", () => setFloor(button.dataset.floor, true, false));
 });
 
 document.querySelector("#zoomIn").addEventListener("click", () => setZoom(zoom + 0.1));
