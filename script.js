@@ -106,7 +106,7 @@ function fillSelects() {
   destinationSelect.value = "ground:dining-entry-2";
 }
 
-function setFloor(floorId) {
+function setFloor(floorId, shouldDrawRoute = true) {
   activeFloor = floorId;
   const floor = floors[floorId];
   floorImage.src = floor.image;
@@ -118,7 +118,7 @@ function setFloor(floorId) {
   });
 
   renderMarkers();
-  if (!isChangingFloor) {
+  if (shouldDrawRoute && !isChangingFloor) {
     drawRoute();
   }
 }
@@ -310,7 +310,7 @@ function setZoom(nextZoom) {
 }
 
 document.querySelectorAll(".floor-tab").forEach((button) => {
-  button.addEventListener("click", () => setFloor(button.dataset.floor));
+  button.addEventListener("click", () => setFloor(button.dataset.floor, false));
 });
 
 document.querySelector("#zoomIn").addEventListener("click", () => setZoom(zoom + 0.1));
